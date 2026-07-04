@@ -132,12 +132,3 @@ Each should print the same result for the `zscoreFS` test:
 - **R and Julia** don't reimplement any MATLAB logic. `reticulate` and `PyCall` simply embed a Python interpreter inside the R / Julia process and import `fsda_gateway.py` directly.
 - **The shared engine** (`matlab.engine.shareEngine('FSDA_Shared')`) ensures only one MATLAB session exists no matter how many languages connect — avoiding wasted license seats and inconsistent state.
 
-## Troubleshooting
-
-| Problem | Fix |
-|---|---|
-| `matlabengine` build fails with a version mismatch error | Re-check `version` in MATLAB and install the exact matching `matlabengine==<version>.*` |
-| `NameError: name '__file__' is not defined` (from R/Julia) | Already handled in `fsda_gateway.py` via `os.getcwd()` — make sure you're running from the project root |
-| `matlab.engine.EngineError: MATLAB session 'FSDA_Shared' cannot be found` | Run `start_shared_engine.m` again in MATLAB and keep that window open |
-| `numpy [NOT FOUND]` when running R's `py_config()` | Packages were installed into a different Python than the one `reticulate`/`PyCall` is pointed at — reinstall using the venv's `python.exe` directly |
-| `PyCall not properly installed` | Set `ENV["PYTHON"]` to the venv's `python.exe` **before** `Pkg.build("PyCall")`, then rebuild |
