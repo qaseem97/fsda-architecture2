@@ -131,4 +131,5 @@ Each should print the same result for the `zscoreFS` test:
 - **`fsda_gateway.py`** — a Python class (`FSDA`) that connects to MATLAB (either a new session or the shared one) and calls `execute()` via `feval`. This is the single gateway every language ultimately goes through.
 - **R and Julia** don't reimplement any MATLAB logic. `reticulate` and `PyCall` simply embed a Python interpreter inside the R / Julia process and import `fsda_gateway.py` directly.
 - **The shared engine** (`matlab.engine.shareEngine('FSDA_Shared')`) ensures only one MATLAB session exists no matter how many languages connect — avoiding wasted license seats and inconsistent state.
-
+## Architecture Diagram
+<img width="1536" height="1024" alt="solution a" src="https://github.com/user-attachments/assets/2f2d845e-6efc-4f5c-afa2-5aa17e9e7d66" />
