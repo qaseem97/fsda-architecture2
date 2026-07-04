@@ -1,0 +1,25 @@
+# Python virtual environment — must be recreated per-machine (matlabengine is version-specific)
+venv/
+__pycache__/
+*.pyc
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Julia
+Manifest.toml
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+
+# MATLAB
+*.asv
+*.m~
+slprj/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

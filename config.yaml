@@ -1,0 +1,24 @@
+# config.yaml
+# Central settings for the FSDA Multi-Language Gateway (Architecture A — Embedded).
+# Keeping these here means no hardcoded paths inside fsda_gateway.py, .R, or .jl files.
+
+matlab:
+  # Name used for matlab.engine.shareEngine(...) / connect_matlab(...)
+  shared_engine_name: "FSDA_Shared"
+
+  # Optional: only needed if FSDA is NOT already on MATLAB's default path
+  # (e.g. installed manually instead of via Add-On Manager). Leave blank ("")
+  # if `which zscoreFS` already works with no addpath.
+  fsda_toolbox_path: ""
+
+python:
+  # Relative to project root — where FSDAEngine.m lives
+  matlab_engine_path: "src/gateways/matlab_engine"
+
+  # Relative to project root — the venv created by `python -m venv venv`
+  venv_path: "venv"
+
+server:
+  # Only used by Architecture B (Server). Harmless to leave here for Architecture A.
+  host: "127.0.0.1"
+  port: 8000

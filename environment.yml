@@ -1,0 +1,24 @@
+# environment.yml
+# Conda-based alternative to `python -m venv venv` + pip install.
+#
+# NOTE: matlabengine is NOT available on conda channels — it must still come from pip,
+# and its version must still match your MATLAB release exactly (see README).
+# Replace 25.2.* below with the version matching YOUR MATLAB release.
+#
+# Create with:   conda env create -f environment.yml
+# Activate with: conda activate fsda-multilang
+# Update with:   conda env update -f environment.yml --prune
+
+name: fsda-architecture2
+
+channels:
+  - defaults
+
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - pyyaml
+  - pip
+  - pip:
+      - matlabengine==25.2.*
